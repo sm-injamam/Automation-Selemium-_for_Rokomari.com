@@ -62,7 +62,14 @@ public class PO001_signUp {
    
    
    public void clickOnHumayen() {
-	   Actions action = new Actions(driver);
-	   action.moveToElement((WebElement) author).moveToElement((WebElement) humayenAhmed).click().perform();
+	   WebElement element = driver.findElement(By.xpath("//a[@id='js--authors']"));
+			WebElement autherElement = driver.findElement(By.xpath("//a[contains(text(),'হুমায়ূন আহমেদ')]"));
+
+		   Actions actions = new Actions(driver);
+			actions.moveToElement(element).build().perform();
+			//Thread.sleep(3000);
+
+			actions.moveToElement(autherElement).build().perform();
+			autherElement.click();
    }
 }
